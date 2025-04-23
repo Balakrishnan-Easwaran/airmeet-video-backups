@@ -49,4 +49,30 @@ public class GoogleSheetsWriter {
 
         request.execute();
     }
+    public static void updateRecordingStats(String spreadsheetId, int rowIndex, int recordingsSelected, int filesZipped)
+            throws IOException, GeneralSecurityException {
+
+        String range = "Sheet1!Y" + (rowIndex + 2) + ":Z" + (rowIndex + 2);
+        List<List<Object>> values = List.of(List.of(recordingsSelected, filesZipped));
+
+        ValueRange body = new ValueRange().setValues(values);
+
+        getSheetsService().spreadsheets().values()
+                .update(spreadsheetId, range, body)
+                .setValueInputOption("RAW")
+                .execute();
+    }
+    public static void updateFileUploadStatus(String spreadsheetId, int rowIndex, String fileUploadStatus)
+            throws IOException, GeneralSecurityException {
+
+        String range = "Sheet1!AA" + (rowIndex + 2);
+        List<List<Object>> values = List.of(List.of(fileUploadStatus));
+
+        ValueRange body = new ValueRange().setValues(values);
+
+        getSheetsService().spreadsheets().values()
+                .update(spreadsheetId, range, body)
+                .setValueInputOption("RAW")
+                .execute();
+    }
 }

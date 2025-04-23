@@ -2,11 +2,15 @@ package com.airmeet.utils;
 
 import com.airmeet.base.DriverManager;
 import com.airmeet.pages.LoginPage;
+import com.google.api.services.sheets.v4.Sheets;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.time.LocalDateTime;
 import java.io.File;
 import java.time.Duration;
 
@@ -15,6 +19,17 @@ import java.util.List;
 public class RecordingDownloadRunner {
 
     public static void main(String[] args) {
+
+        try {
+            String timestamp = LocalDateTime.now().toString().replace(":", "-");
+            PrintStream logStream = new PrintStream(new FileOutputStream("automation-log-" + timestamp + ".txt", true));
+            System.setOut(logStream);  // Redirect stdout to file
+            System.setErr(logStream);  // Redirect stderr to file
+            System.out.println("===== Log started at " + LocalDateTime.now() + " =====");
+        } catch (Exception e) {
+            e.printStackTrace(); // fallback in case log redirection fails
+        }
+
         try {
             WebDriver driver = DriverManager.getDriver();
 
@@ -32,7 +47,7 @@ public class RecordingDownloadRunner {
                 e.printStackTrace();
             }
 
-            for (int i = 0; i < 1; i++) {
+            for (int i = 22; i < rows.size(); i++) {
                 List<Object> row = rows.get(i);
                 if (row.isEmpty()) continue;
 
@@ -44,17 +59,44 @@ public class RecordingDownloadRunner {
 
 
                 driver.get(url);
-
                 Thread.sleep(5000);
+
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
+                wait.until(ExpectedConditions.visibilityOfElementLocated(
+                        By.xpath("//th[@class='checkbox-outer']//span[@class='checkmark']")
+                ));
+
                 // download the video & zip it and do all other operations.
                 By checkbox = By.xpath("//th[@class='checkbox-outer']//span[@class='checkmark']");
                 driver.findElement(checkbox).click();
 
+                List<WebElement> downloadButtons = driver.findElements(By.xpath("//button[contains(text(), 'Recordings') and contains(text(), 'selected')]"));
+
+                if (downloadButtons.isEmpty()) {
+                    System.out.println("⚠️ No download button appeared — skipping row " + (i + 2));
+                    GoogleSheetsWriter.updateFileUploadStatus(sheetId, i, "⚠️ No Recordings Found");
+                    continue;
+                }
+
+                WebElement emptyDownloadButton = downloadButtons.get(0);
+
+                if (!emptyDownloadButton.isEnabled()) {
+                    System.out.println("⚠️ Download button is disabled — skipping row " + (i + 2));
+                    GoogleSheetsWriter.updateFileUploadStatus(sheetId, i, "⚠️ Download Button Disabled");
+                    continue;
+                }
+
+
+
                 By downloadButton = By.xpath("//button[contains(text(), 'Recordings') and contains(text(), 'selected')]");
+                String buttonText = driver.findElement(downloadButton).getText();
+                String[] parts = buttonText.split(" ");
+                int recordingsSelected = Integer.parseInt(parts[1]);
+
                 Thread.sleep(2000);
                 driver.findElement(downloadButton).click();
                 Thread.sleep(5000);
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
+
 
                 // Wait until popup with close button appears
                 wait.until(ExpectedConditions.visibilityOfElementLocated(
@@ -67,8 +109,31 @@ public class RecordingDownloadRunner {
                 Thread.sleep(3000);
                 System.out.println("Starting to zip!");
                 String zipFilePath = "/Users/agilabalakrishnan/Desktop/airmeet-video-backup-zips/" + zipFileName + ".zip";
-                File zipped = ZipUtil.zipAllFilesInFolder(downloadDir, zipFilePath);
+                int zippedFileCount = ZipUtil.zipAllFilesInFolder(downloadDir, zipFilePath);
                 System.out.println("Zip complete!");
+
+                GoogleSheetsWriter.updateRecordingStats(sheetId, i, recordingsSelected, zippedFileCount);
+
+                // Uploading files to google drive! Yes!
+                boolean fileUploadStatus = GoogleDriveUploader.uploadZipToDrive(zipFilePath, zipFileName + ".zip");
+                if (fileUploadStatus) {
+                    System.out.println("Uploaded successfully!");
+                    GoogleSheetsWriter.updateFileUploadStatus(sheetId, i, "Successful");
+                }
+                else {
+                    System.out.println("Erros in uploading files. aborting now!");
+                    DriverManager.quitDriver();
+                }
+
+                // Clearing folders so that the next set of videos can be downloaded!
+                boolean folderClearanceStatus = ZipUtil.clearFolders(downloadDir,"/Users/agilabalakrishnan/Desktop/airmeet-video-backup-zips/");
+                if (folderClearanceStatus) {
+                    System.out.println("Successfully cleared folders, continuining to next!");
+                }
+                else {
+                    System.out.println("Erros in clearing folders! aborting now!");
+                    DriverManager.quitDriver();
+                }
             }
             //DriverManager.quitDriver();
 

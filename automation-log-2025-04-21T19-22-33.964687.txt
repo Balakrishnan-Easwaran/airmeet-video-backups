@@ -1,0 +1,130 @@
+===== Log started at 2025-04-21T19:22:33.968656 =====
+SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+Apr 21, 2025 7:22:36 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 135
+Apr 21, 2025 7:22:36 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 135.0.7049.96. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.19.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+inside login function
+clicking popup
+entering email
+going to sleep
+🔁 [24] Visiting: https://www.airmeet.com/airmeets/66f3fae0-8a35-11ef-bdd0-fb4233f7cfb8/schedule/recordings
+Waiting for download to finish!
+Waiting for download to finish!
+⏳ Waiting for downloads to finish...
+✅ Downloads complete and stable.
+Starting to zip!
+Zipping: _Handling Security Controls in Microsoft Azure with Kevin Apolinaro.mp4
+Zip complete!
+ Starting File Upload -:  Handling Security Controls in Microsoft Azure with Kevin Apolinaro_11132024.zip
+✅ Uploaded to Drive:  Handling Security Controls in Microsoft Azure with Kevin Apolinaro_11132024.zip (ID: 1_nPR6SoiD-2ksgeLWMAlf5eEib2LlNCo)
+Uploaded successfully!
+🧹 Deleted: _Handling Security Controls in Microsoft Azure with Kevin Apolinaro.mp4 from airmeet-video-backups
+🧹 Deleted:  Handling Security Controls in Microsoft Azure with Kevin Apolinaro_11132024.zip from airmeet-video-backup-zips
+Successfully cleared folders, continuining to next!
+🔁 [25] Visiting: https://www.airmeet.com/airmeets/02122a80-8bd3-11ef-b306-2f383452a0fa/schedule/recordings
+Waiting for download to finish!
+Waiting for download to finish!
+⏳ Waiting for downloads to finish...
+✅ Downloads complete and stable.
+Starting to zip!
+Zipping: Infosecurity Ethical Considerations with Generative AI.mp4
+Zip complete!
+ Starting File Upload -:  Infosecurity Ethical Considerations with Generative AI_11122024.zip
+✅ Uploaded to Drive:  Infosecurity Ethical Considerations with Generative AI_11122024.zip (ID: 1t5XwKntIxrAJYxR2QFKm4VbEED6BWD5J)
+Uploaded successfully!
+🧹 Deleted: Infosecurity Ethical Considerations with Generative AI.mp4 from airmeet-video-backups
+🧹 Deleted:  Infosecurity Ethical Considerations with Generative AI_11122024.zip from airmeet-video-backup-zips
+Successfully cleared folders, continuining to next!
+🔁 [26] Visiting: https://www.airmeet.com/airmeets/f6840f50-5fd4-11ef-b254-7358ce5cd061/schedule/recordings
+Waiting for download to finish!
+Waiting for download to finish!
+⏳ Waiting for downloads to finish...
+✅ Downloads complete and stable.
+Starting to zip!
+Zipping: Extracting Insights with GPT.mp4
+Zip complete!
+ Starting File Upload -: Extracting Insights with GPT Skills Challenge_11122024.zip
+✅ Uploaded to Drive: Extracting Insights with GPT Skills Challenge_11122024.zip (ID: 1XguV72GjSS7geEvreABIu00d6cXWpt4F)
+Uploaded successfully!
+🧹 Deleted: Extracting Insights with GPT.mp4 from airmeet-video-backups
+🧹 Deleted: Extracting Insights with GPT Skills Challenge_11122024.zip from airmeet-video-backup-zips
+Successfully cleared folders, continuining to next!
+🔁 [27] Visiting: https://www.airmeet.com/airmeets/5b370a00-706b-11ef-b028-b11639369848/schedule/recordings
+⚠️ No download button appeared — skipping row 27
+🔁 [28] Visiting: https://www.airmeet.com/airmeets/891eaa60-7069-11ef-8020-27b6f27279d8/schedule/recordings
+Waiting for download to finish!
+Waiting for download to finish!
+⏳ Waiting for downloads to finish...
+✅ Downloads complete and stable.
+Starting to zip!
+Zipping: Essential Descriptive Analytics.mp4
+Zip complete!
+ Starting File Upload -: Essential Descriptive Analytics Shadow Session_11082024.zip
+✅ Uploaded to Drive: Essential Descriptive Analytics Shadow Session_11082024.zip (ID: 1dcIJodMOvt4_WdbJgeVtd-xQTr8rLthp)
+Uploaded successfully!
+🧹 Deleted: Essential Descriptive Analytics.mp4 from airmeet-video-backups
+🧹 Deleted: Essential Descriptive Analytics Shadow Session_11082024.zip from airmeet-video-backup-zips
+Successfully cleared folders, continuining to next!
+🔁 [29] Visiting: https://www.airmeet.com/airmeets/bf4f7200-7211-11ef-a929-89a4600c158e/schedule/recordings
+Waiting for download to finish!
+Waiting for download to finish!
+⏳ Waiting for downloads to finish...
+✅ Downloads complete and stable.
+Starting to zip!
+Zipping: Purple Teaming & Compliance Management.mp4
+Zip complete!
+ Starting File Upload -: Purple Teaming & Compliance Management Shadow Session_11082024.zip
+✅ Uploaded to Drive: Purple Teaming & Compliance Management Shadow Session_11082024.zip (ID: 1FHJnwY5aiaTS-wy7MTTk1oWdoAU5mnNG)
+Uploaded successfully!
+🧹 Deleted: Purple Teaming & Compliance Management.mp4 from airmeet-video-backups
+🧹 Deleted: Purple Teaming & Compliance Management Shadow Session_11082024.zip from airmeet-video-backup-zips
+Successfully cleared folders, continuining to next!
+🔁 [30] Visiting: https://www.airmeet.com/airmeets/5cfe0230-9087-11ef-a3da-1327e20907f2/schedule/recordings
+Waiting for download to finish!
+Waiting for download to finish!
+⏳ Waiting for downloads to finish...
+✅ Downloads complete and stable.
+Starting to zip!
+Zipping: Organic Networking Fireside Chat.mp4
+Zip complete!
+ Starting File Upload -:  Exploring Non-Technical Roles Fireside Chat_11082024.zip
+✅ Uploaded to Drive:  Exploring Non-Technical Roles Fireside Chat_11082024.zip (ID: 1GDwbm1f_hbOEKq7XIlGAZLFzObXCWGB6)
+Uploaded successfully!
+🧹 Deleted: Organic Networking Fireside Chat.mp4 from airmeet-video-backups
+🧹 Deleted:  Exploring Non-Technical Roles Fireside Chat_11082024.zip from airmeet-video-backup-zips
+Successfully cleared folders, continuining to next!
+🔁 [31] Visiting: https://www.airmeet.com/airmeets/7c86c410-649b-11ef-9912-e114e5a3ee31/schedule/recordings
+Waiting for download to finish!
+Waiting for download to finish!
+⏳ Waiting for downloads to finish...
+✅ Downloads complete and stable.
+Starting to zip!
+Zipping: Einstein Shenanigans.mp4
+Zipping: Prompt Builder.mp4
+Zipping: Einstein Copilot.mp4
+Zipping: Prompt Builder Shenanigans.mp4
+Zipping: Experience Kickoff.mp4
+Zip complete!
+ Starting File Upload -: AI Consultant with Einstein Copilot and Prompt Builder Mini Sprint_11052024.zip
+com.google.api.client.googleapis.json.GoogleJsonResponseException: 403 Forbidden
+POST https://www.googleapis.com/upload/drive/v3/files?fields=id,%20name&uploadType=resumable
+{
+  "code" : 403,
+  "errors" : [ {
+    "domain" : "usageLimits",
+    "message" : "The user's Drive storage quota has been exceeded.",
+    "reason" : "storageQuotaExceeded"
+  } ],
+  "message" : "The user's Drive storage quota has been exceeded."
+}
+	at com.google.api.client.googleapis.json.GoogleJsonResponseException.from(GoogleJsonResponseException.java:146)
+	at com.google.api.client.googleapis.services.json.AbstractGoogleJsonClientRequest.newExceptionOnError(AbstractGoogleJsonClientRequest.java:118)
+	at com.google.api.client.googleapis.services.json.AbstractGoogleJsonClientRequest.newExceptionOnError(AbstractGoogleJsonClientRequest.java:37)
+	at com.google.api.client.googleapis.services.AbstractGoogleClientRequest.executeUnparsed(AbstractGoogleClientRequest.java:532)
+	at com.google.api.client.googleapis.services.AbstractGoogleClientRequest.executeUnparsed(AbstractGoogleClientRequest.java:455)
+	at com.google.api.client.googleapis.services.AbstractGoogleClientRequest.execute(AbstractGoogleClientRequest.java:565)
+	at com.airmeet.utils.GoogleDriveUploader.uploadZipToDrive(GoogleDriveUploader.java:39)
+	at com.airmeet.utils.RecordingDownloadRunner.main(RecordingDownloadRunner.java:118)
