@@ -18,7 +18,7 @@ For each Airmeet event (based on a list of IDs in a Google Sheet):
    - Number of recordings selected
    - Number of videos zipped
    - Upload success/failure status
-8. ✅ Cleans up all local files before processing the next event
+8. Cleans up all local files before processing the next event
 
 ---
 
